@@ -16,10 +16,19 @@ def define_missing_values(data):
 
 def drop_missing_values_cols(data, rate):
     rates = data_visualization.nan_columns_rates(data)
-    rates = rates[rates > rate]
+    rates = rates[rates >= rate]
     return data.drop(rates.index, axis = 1)
 
 def drop_missing_values_rows(data, rate):
     rates = data_visualization.nan_rows_rates(data)
-    rates = rates[rates > rate]
+    rates = rates[rates >= rate]
     return data.drop(rates.index)
+
+def missing_values_columns(data):
+    sum = data.isna().sum()
+    return sum[sum != 0].index
+
+def imputation(data):
+    cols = missing_values_columns(data)
+    for col in cols:
+        if  
