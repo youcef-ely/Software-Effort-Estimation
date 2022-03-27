@@ -1,0 +1,69 @@
+def dictionary(col_name):
+    dd = {}
+    if col_name == 'Organization type':
+        dd = {1:'Public Software company', 2:'University', 3:'Federal Ministry', 4:'Federal directorates', 5:'Private Software company', 6:'Corporate IT department', 7:'Freelancer', 8:'Telecommunication company'}
+    if col_name == 'Role in organization':
+        dd = {1:'Developer', 2:'Project manager', 3:'Company manager', 4:'Technical consultant', 6:'Technical manager', 7:'Planning coordinator', 8:'System administrator'}
+    if col_name == 'Customer organization type':
+        dd = {1:'University department', 2:'Department in a Private company', 3:'Bank', 4:'Federal Ministry', 5:'Department in a federal ministry', 6:'Factory', 7:'Hospital department', 8:'TV Channel', 9:'Non-profit organization', 10:'Private company', 11:'Hospital', 12:'Public company', 13:'In-house development', 14:'Federal directorates', 15:'Private school', 16:'Department in a bank'}
+    if col_name == 'Size of organization':
+        dd = {1:'1-5', 2:'6-10', 3:'11-20', 4:'21-30', 5:'31-40', 6:'41-50', 7:'51-100', 8:'101-150', 9:'151-200', 10:'201-250', 11:'251-300', 12:'301-350', 13:'351-400', 14:'401-450', 15:'451-500', 16:'>500'}
+    if col_name == 'Size of IT department':
+        dd = {1:'1-5', 2:'6-10', 3:'11-15', 4:'16-20', 5:'21-25', 6: '26-30', 7:'31-35', 8:'36-40', 9:'41-45', 10:'46-50', 11:'>50', 12:'N/A'}
+    if col_name == 'Application domain':
+        dd = {1:'Banking systems', 2:'ERP', 3:'Mobile applications', 5:'Financial and managerial', 6: 'Web applications', 7:'Bespoke applications'}
+    if col_name == 'Development type':
+        dd = {1:'New software development', 2:'Upgrading existing software', 3:'Modifying existing software', 4:'Customization of imported software'}
+    if col_name == 'Government policy impact':
+        dd = {1:'Very positive impact', 2:'Positive impact', 3:'No impact', 4:'Negative impact', 5:'Very negative impact'}
+    if col_name == 'Developer hiring policy':
+        dd = {1:'There exists hiring standards and applicant evaluations and are applied', 2:'No hiring standards but applicant evaluation is applied', 3:'There exists hiring standards and applicant evaluations but are not implemented – hiring acquaintances', 4:'No specific policy followed'}
+    if col_name == 'Organization management structure clarity':
+        dd = {1:'Organization management structure is clear and all procedures are clear', 2:'Organization management structure isn’t clear', 3:'No organization management structure exists'}
+    if col_name == 'Developer training':
+        dd = {1:'Organization provides periodic training which was utilized', 2:'Developers were trained specifically for this project', 3:'No training provided'}
+    if col_name in ['Fixed minimum working hours', 'Time sheet recording', 'Team work commitment', 'Direct automation of the manual system', 'Transfer of key user', 'DBMS expert availability', 'Open source software', 'Risk plan', 'Risk management tool usage', 'Reengineering']:
+        dd = {1:'Yes', 0:'No'}  
+    if col_name == 'User computer experience':
+        dd = {1:'Previous computer system exists in the customer organization (i.e., users have experience dealing with computers)', 2:'Familiar with the basics', 3:'No computer experience'}
+    if col_name in ['Manual system experience', 'User cooperation in requirement solicitation', 'Users desire for change/project adaption', 'User not afraid of the impact of product', 'Cohesion between developers and users']:
+        dd = {1:'Very strong', 2:'Strong', 3:'Normal', 4:'Weak', 5:'Very weak'}
+    if col_name == 'Project manager experience':
+        dd = {1:'Previous experience in similar software systems', 2:'Previous experience in non- similar software systems', 3:'No previous experience'}
+    if col_name == 'Consultant availability':
+        dd = {1:'A consultant advised on the technical and project management issues', 2:'A consultant advised on the technical issues only', 3:'No consultancy'}
+    if col_name in ['Software tool experience', 'Programmers experience in programming language']:
+        dd = {1:'More than 4 years', 2:'2 years - 3 years', 3:'1 year – 2 years', 4:'6 months – 1 year', 5:'First time in this project'}
+    if col_name == 'Team selection':
+        dd = {1: 'Based on experience in application type', 2:'Based on job specialization (analysts, designers, ..., etc.)', 3:'Based on existing developers'}
+    if col_name == 'Income satisfaction':
+        dd = {1:'Very satisfied', 2:'Satisfied', 3:'Normal', 4:'Unsatisfied', 5:'Very unsatisfied'}
+    if col_name == 'Schedule quality':
+        dd = {1:'Devised a schedule and followed it with periodic evaluation', 2:'Devised a schedule with no periodic evaluation', 3:'Devised a schedule and did not follow it', 4:'No schedule'}
+    if col_name == 'Programming language used':
+        dd = {1:'PHP', 2:'Android', 3:'ASP.net', 4:'C#', 5:'Java, Android', 6:'Java', 7:'Oracle Developer', 8:'Visual Basic 6', 9:'Python/Java', 10:'Python', 11:'Visual Basic .Net', 12:'C++', 13:'Python/HTML/PHP', 16:'Visual Basic/C#', 17:'PHP/Oracle', 18:'Javascript/PHP', 19:'ASP.NET/Javascript/C#', 23:'CH', 24:'Java, C#, PHP', 25:'Java/Android/C#'}
+    if col_name == 'DBMS used':
+        dd = {1:'MySQL', 2:'Oracle', 3:'Microsoft SQL Server', 4:'PostgreSQL'}
+    if col_name == 'Software methodology':
+        dd = {1:'Waterfall', 2:'Agile', 3:'Hybrid methodologies', 4:'No methodology', 6:'Prototyping', 7:'Other'}
+    if col_name == 'Level of outsourcing': 
+        dd = {1:'Outsourcing to an entity with better experience and capabilities than the development team', 2:'Outsourcing to an entity with the same experience and capabilities as the development team', 3:'No outsourcing'}
+    if col_name == 'Outsourcing impact': 
+        dd = {1: 'Schedule underrun', 2:'No effect', 3:'Schedule overrun'}
+    if col_name == 'Degree of software reuse': 
+        dd = {1: 'Use of standards for all the software development lifecycle', 2: 'Use of standards for specific phases in software development lifecycle', 3: 'Not using any standards'}
+    if col_name == 'Requirement accuracy level':
+        dd = {1:'Accurate requirements specifications used to develop the software system', 2:'Inaccurate requirements specifications and required the re-analysis of the software requirements', 3:'Inaccurate requirements specifications and required the re-design of the software system', 4:'Inaccurate requirements specifications and required re-programming the software system'}
+    if col_name == 'Technical documentation':
+        dd = {1:'No documentation', 2:'Large parts of the development lifecycle not covered', 3:'Minimal parts of the development lifecycle not covered', 4:'All phases were documented'} 
+    if col_name == 'Comments within the code':
+        dd = {1:'No comments', 2:'Comments for programmer’s convenience', 3:'Comments in some modules for other programmers understanding', 4:'Detailed comments within the code'}
+    if col_name == 'User manual':
+        dd = {1:'No user manual', 2:'User manual does not cover all the software system', 3:'Unclear user manual, written in technical terminology', 4:'Clear user manual that covers all the software system'}
+    if col_name == 'Required reusability':
+        dd = {1:'No reusing required', 2:'Reusing of some modules', 3:'Reusing of the complete software system to develop another software system', 4:'Customizations of the software system to be sold to other customers'}
+    if col_name == 'Reliability requirements':
+        dd = {1:'User dis-satisfaction and inconvenience', 2:'Minor monetary loss, can be mitigated', 3:'Medium monetary loss, can be mitigated', 4:'Major monetary loss', 5:'Life threatening'}
+    if col_name == 'Specified H/W':
+        dd = {1:'Not required', 2:'Required specialized H/W that was available on time and we have prior experience with the H/W', 3:'Required specialized H/W that was available on time but we do not have prior experience with the H/W', 4:'Required specialized H/W that was not available on time'}
+    return dd
