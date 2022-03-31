@@ -1,4 +1,6 @@
-def dictionary(col_name):
+#Defining a dictionary for categorial data
+
+def values_meaning(col_name):
     dd = {}
     if col_name == 'Organization type':
         dd = {1:'Public Software company', 2:'University', 3:'Federal Ministry', 4:'Federal directorates', 5:'Private Software company', 6:'Corporate IT department', 7:'Freelancer', 8:'Telecommunication company'}
@@ -67,3 +69,51 @@ def dictionary(col_name):
     if col_name == 'Specified H/W':
         dd = {1:'Not required', 2:'Required specialized H/W that was available on time and we have prior experience with the H/W', 3:'Required specialized H/W that was available on time but we do not have prior experience with the H/W', 4:'Required specialized H/W that was not available on time'}
     return dd
+
+
+
+
+
+#Defining a dictionary for each category and its columns
+def categories(category):
+    categories = {
+    'General Information': ['Year of project', 'Organization type', 'Role in organization', 'Size of organization', 
+                            'Size of IT department', 'Customer organization type', 'Estimated  duration', 'Actual duration', 
+                            '% project gain (loss)', 'Development type', 'Application domain'
+                           ],
+    'Size':                ['Object points', 'Other sizing method', 'Estimated size'
+                           ],
+    'Effort':              ['Estimated effort', 'Actual effort'
+                           ],
+    'Environment':         ['Contract maturity', 'Government policy impact', 'Economic instability impact',
+                            'Organization management structure clarity', 'Developer hiring policy',
+                            'Developer incentives policy ', 'Developer training',
+                            'Development team management'
+                           ],
+    'Users':               ['Top management support',
+                            'Top management opinion of previous system', 'Clarity of manual system',
+                            'User resistance', 'User computer experience', 'Users stability',
+                            'Requirment stability', 'Requirements flexibility'
+                           ],
+    'Developers':          ['Project manager experience', 'Consultant availability', 'DBMS  expert availability', 'Precedentedness',
+                            'Software tool experience', 'Programmers experience in programming language', 'Programmers capability ', 'Analysts capability ', 
+                            'Team selection', 'Team size', 'Dedicated team members', 'Daily working hours', 'Team contracts', 'Team continuity ', 
+                            'Team cohesion', 'Income satisfaction'
+                           ],
+    'Project':             ['Schedule quality', 'Development environment adequacy', 'Tool availability ', 'Methodology',
+                            'Multiple programing languages ', 'Programming language used',
+                            'DBMS used', 'Technical stability', 'Open source software',
+                            'Level of outsourcing', 'Outsourcing impact',
+                            'Degree of software reuse ', 'Degree of risk management',
+                            'Use of standards', 'Degree of standards usage',
+                            'Process reengineering'
+                           ], 
+    'Product':             ['Requirement accuracy level',
+                            'Technical documentation', 'Comments within the code', 'User manual',
+                            'Required reusability', 'Performance requirements',
+                            'Product complexity', 'Security requirements',
+                            'Reliability requirements', 'Specified H/W'
+                            ], 
+    }
+    
+    return categories[category]
