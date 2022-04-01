@@ -16,20 +16,36 @@ def values_meaning(col_name):
         dd = {1:'Banking systems', 2:'ERP', 3:'Mobile applications', 5:'Financial and managerial', 6: 'Web applications', 7:'Bespoke applications'}
     if col_name == 'Development type':
         dd = {1:'New software development', 2:'Upgrading existing software', 3:'Modifying existing software', 4:'Customization of imported software'}
+    
+    
     if col_name == 'Government policy impact':
         dd = {1:'Very positive impact', 2:'Positive impact', 3:'No impact', 4:'Negative impact', 5:'Very negative impact'}
     if col_name == 'Developer hiring policy':
         dd = {1:'There exists hiring standards and applicant evaluations and are applied', 2:'No hiring standards but applicant evaluation is applied', 3:'There exists hiring standards and applicant evaluations but are not implemented – hiring acquaintances', 4:'No specific policy followed'}
     if col_name == 'Organization management structure clarity':
         dd = {1:'Organization management structure is clear and all procedures are clear', 2:'Organization management structure isn’t clear', 3:'No organization management structure exists'}
+    if col_name == 'Incentive policy implementation level':
+        dd = {1:'Incentives based on clear metrics', 2:'Incentives based on personal considerations of CEO/project manager', 3:'No incentives'}
     if col_name == 'Developer training':
         dd = {1:'Organization provides periodic training which was utilized', 2:'Developers were trained specifically for this project', 3:'No training provided'}
-    if col_name in ['Fixed minimum working hours', 'Time sheet recording', 'Team work commitment', 'Direct automation of the manual system', 'Transfer of key user', 'DBMS expert availability', 'Open source software', 'Risk plan', 'Risk management tool usage', 'Reengineering']:
+    if col_name in ['Fixed minimum working hours', 'Time sheet recording', 'Team work commitment', 'Top management opinion of previous system','Direct automation of the manual system', 'Transfer of key user', 'DBMS expert availability', 'Open source software', 'Risk plan', 'Risk management tool usage', 'Reengineering']:
         dd = {1:'Yes', 0:'No'}  
+    if col_name == 'Consequence for lack of work':
+        dd = {1:'Dismissal from work', 2:'Salary deduction', 3:'Warning', 4:'No consequences'}
+    if col_name == 'Absence policy implementation':
+        dd = {1:'Rules and its applied', 2:'Rules and it’s not applied', 3:'No rules'} 
+   
+    
+    if col_name == 'User manual clarity':
+        dd = {1:'Very clear', 2:'Clear', 3:'Normal', 4:'Unclear', 5:'Very unclear'}
+    if col_name in ['Modifications during requirements collection', 'Modifications during analysis', 'Modifications during design', 'Modifications during programming', 'Modifications during testing', 'Modifications during deployment']:
+        dd = {0:'No changes', 1:'Minor', 2:'Partial', 3:'Major'}
     if col_name == 'User computer experience':
         dd = {1:'Previous computer system exists in the customer organization (i.e., users have experience dealing with computers)', 2:'Familiar with the basics', 3:'No computer experience'}
     if col_name in ['Manual system experience', 'User cooperation in requirement solicitation', 'Users desire for change/project adaption', 'User not afraid of the impact of product', 'Cohesion between developers and users']:
         dd = {1:'Very strong', 2:'Strong', 3:'Normal', 4:'Weak', 5:'Very weak'}
+    
+    
     if col_name == 'Project manager experience':
         dd = {1:'Previous experience in similar software systems', 2:'Previous experience in non- similar software systems', 3:'No previous experience'}
     if col_name == 'Consultant availability':
@@ -40,6 +56,8 @@ def values_meaning(col_name):
         dd = {1: 'Based on experience in application type', 2:'Based on job specialization (analysts, designers, ..., etc.)', 3:'Based on existing developers'}
     if col_name == 'Income satisfaction':
         dd = {1:'Very satisfied', 2:'Satisfied', 3:'Normal', 4:'Unsatisfied', 5:'Very unsatisfied'}
+    
+    
     if col_name == 'Schedule quality':
         dd = {1:'Devised a schedule and followed it with periodic evaluation', 2:'Devised a schedule with no periodic evaluation', 3:'Devised a schedule and did not follow it', 4:'No schedule'}
     if col_name == 'Programming language used':
@@ -48,12 +66,19 @@ def values_meaning(col_name):
         dd = {1:'MySQL', 2:'Oracle', 3:'Microsoft SQL Server', 4:'PostgreSQL'}
     if col_name == 'Software methodology':
         dd = {1:'Waterfall', 2:'Agile', 3:'Hybrid methodologies', 4:'No methodology', 6:'Prototyping', 7:'Other'}
+    if col_name == 'Level of technical instability (Main)':
+        dd = {1:'No technology change', 2:'one time during project development', 3:'2 – 3 times', 4:'Frequent changes'}
     if col_name == 'Level of outsourcing': 
         dd = {1:'Outsourcing to an entity with better experience and capabilities than the development team', 2:'Outsourcing to an entity with the same experience and capabilities as the development team', 3:'No outsourcing'}
     if col_name == 'Outsourcing impact': 
         dd = {1: 'Schedule underrun', 2:'No effect', 3:'Schedule overrun'}
-    if col_name == 'Degree of software reuse': 
+    if col_name == 'Degree of software reuse':
+        dd = {1:'Reuse/purchase a complete software system', 2:'Reuse/purchase modules from previous software system', 3:'Reuse the design of a previous software system', 4:'Reuse the technical specifications from previous software system', 5:'No reuse'}
+    if col_name == 'Use of standards': 
         dd = {1: 'Use of standards for all the software development lifecycle', 2: 'Use of standards for specific phases in software development lifecycle', 3: 'Not using any standards'}
+    
+    
+    
     if col_name == 'Requirement accuracy level':
         dd = {1:'Accurate requirements specifications used to develop the software system', 2:'Inaccurate requirements specifications and required the re-analysis of the software requirements', 3:'Inaccurate requirements specifications and required the re-design of the software system', 4:'Inaccurate requirements specifications and required re-programming the software system'}
     if col_name == 'Technical documentation':
@@ -64,6 +89,8 @@ def values_meaning(col_name):
         dd = {1:'No user manual', 2:'User manual does not cover all the software system', 3:'Unclear user manual, written in technical terminology', 4:'Clear user manual that covers all the software system'}
     if col_name == 'Required reusability':
         dd = {1:'No reusing required', 2:'Reusing of some modules', 3:'Reusing of the complete software system to develop another software system', 4:'Customizations of the software system to be sold to other customers'}
+    if col_name == 'Product complexity':
+        dd = {1:'User dis-satisfaction and inconvenience', 2:'Minor monetary loss, can be mitigated', 3:'Medium monetary loss, can be mitigated', 4:'Major monetary loss', 5:'Life threatening'}
     if col_name == 'Reliability requirements':
         dd = {1:'User dis-satisfaction and inconvenience', 2:'Minor monetary loss, can be mitigated', 3:'Medium monetary loss, can be mitigated', 4:'Major monetary loss', 5:'Life threatening'}
     if col_name == 'Specified H/W':
