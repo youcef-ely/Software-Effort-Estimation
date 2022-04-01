@@ -1,12 +1,3 @@
-import sys
-import os
-
-module_path = os.path.abspath(os.path.join('..'))
-if module_path not in sys.path:
-    sys.path.append(module_path+"\\src")
-
-import data_visualization
-
 import numpy as np
 
 
@@ -30,4 +21,3 @@ def missing_values_columns(data):
     sum = data.isna().sum()
     return sum[sum != 0].index
 
-"""  """  

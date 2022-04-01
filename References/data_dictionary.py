@@ -1,7 +1,7 @@
 #Defining a dictionary for categorial data
 
 def values_meaning(col_name):
-    dd = {}
+    dd = None
     if col_name == 'Organization type':
         dd = {1:'Public Software company', 2:'University', 3:'Federal Ministry', 4:'Federal directorates', 5:'Private Software company', 6:'Corporate IT department', 7:'Freelancer', 8:'Telecommunication company'}
     if col_name == 'Role in organization':
