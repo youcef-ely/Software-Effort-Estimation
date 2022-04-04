@@ -21,3 +21,12 @@ def missing_values_columns(data):
     sum = data.isna().sum()
     return sum[sum != 0].index
 
+def categorial_cols_imputation(data, columns_name):
+    for col in columns_name:
+        data[col] = data[col].fillna(data[col].mode()[0])
+    return data
+
+def number_cols_imputation(data, columns_name):
+    for col in columns_name:
+        data[col] = data[col].fillna(data[col].mean()[0])
+    return data

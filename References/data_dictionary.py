@@ -72,7 +72,7 @@ def values_meaning(col_name):
         dd = {1:'Outsourcing to an entity with better experience and capabilities than the development team', 2:'Outsourcing to an entity with the same experience and capabilities as the development team', 3:'No outsourcing'}
     if col_name == 'Outsourcing impact': 
         dd = {1: 'Schedule underrun', 2:'No effect', 3:'Schedule overrun'}
-    if col_name == 'Degree of software reuse':
+    if col_name == 'Degree of software reuse ':
         dd = {1:'Reuse/purchase a complete software system', 2:'Reuse/purchase modules from previous software system', 3:'Reuse the design of a previous software system', 4:'Reuse the technical specifications from previous software system', 5:'No reuse'}
     if col_name == 'Use of standards': 
         dd = {1: 'Use of standards for all the software development lifecycle', 2: 'Use of standards for specific phases in software development lifecycle', 3: 'Not using any standards'}
