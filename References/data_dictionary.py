@@ -1,5 +1,8 @@
 #Defining a dictionary for categorial data
 
+from sympy import re
+
+
 def values_meaning(col_name):
     dd = None
     if col_name == 'Organization type':
@@ -64,7 +67,7 @@ def values_meaning(col_name):
         dd = {1:'PHP', 2:'Android', 3:'ASP.net', 4:'C#', 5:'Java, Android', 6:'Java', 7:'Oracle Developer', 8:'Visual Basic 6', 9:'Python/Java', 10:'Python', 11:'Visual Basic .Net', 12:'C++', 13:'Python/HTML/PHP', 16:'Visual Basic/C#', 17:'PHP/Oracle', 18:'Javascript/PHP', 19:'ASP.NET/Javascript/C#', 23:'CH', 24:'Java, C#, PHP', 25:'Java/Android/C#'}
     if col_name == 'DBMS used':
         dd = {1:'MySQL', 2:'Oracle', 3:'Microsoft SQL Server', 4:'PostgreSQL'}
-    if col_name == 'Software methodology':
+    if col_name == 'Methodology':
         dd = {1:'Waterfall', 2:'Agile', 3:'Hybrid methodologies', 4:'No methodology', 6:'Prototyping', 7:'Other'}
     if col_name == 'Level of technical instability (Main)':
         dd = {1:'No technology change', 2:'one time during project development', 3:'2 – 3 times', 4:'Frequent changes'}
@@ -99,8 +102,15 @@ def values_meaning(col_name):
 
 
 
-
-
+def categorical_cols_names():
+    names = ['Organization type', 'Role in organization', 'Size of organization', 'Size of organization', 'Customer organization type', 'Size of IT department', 'Application domain', 'Development type',
+    'Government policy impact', 'Developer hiring policy', 'Organization management structure clarity', 'Developer training', 'Fixed minimum working hours', 'Time sheet recording', 'Team work commitment', 'Top management opinion of previous system','Direct automation of the manual system', 'Transfer of key user', 'DBMS expert availability', 'Open source software', 'Risk plan', 'Risk management tool usage', 'Reengineering', 'Consequence for lack of work', 'Absence policy implementation',
+    'User manual clarity', 'Developer hiring policy', 'Manual system experience', 'User cooperation in requirement solicitation', 'Users desire for change/project adaption', 'User not afraid of the impact of product', 'Cohesion between developers and users',
+    'Project manager experience', 'Consultant availability', 'Software tool experience', 'Programmers experience in programming language', 'Team selection', 'Income satisfaction',
+    'Schedule quality', 'Programming language used', 'DBMS used', 'Methodology', 'Level of outsourcing', 'Outsourcing impact', 'Degree of software reuse ', 'Use of standards', 
+    'Requirement accuracy level', 'Technical documentation', 'Comments within the code', 'User manual', 'Required reusability', 'Product complexity', 'Reliability requirements', 'Specified H/W']
+    names.sort()
+    return names
 #Defining a dictionary for each category and its columns
 def categories(category):
     categories = {

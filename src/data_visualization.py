@@ -1,21 +1,28 @@
 import seaborn as sns
 import matplotlib.pyplot as plt 
-import pandas as pd 
+import pandas as pd
+from sympy import rotations 
 pd.set_option('display.max_row', 70)
 pd.set_option('display.max_column', 70)
 
 
 def pie_plot(column, values_meaning):
+    fig = plt.figure(figsize = (10, 10))
+    fig.patch.set_facecolor('white')
     labels = None
     if values_meaning != {}:
-        labels = dict.values()
-    column.value_counts().sort_index().plot(kind = 'pie',
-    labels = values_meaning, 
-    autopct = '%.2f')
+        labels = values_meaning.values()
+    column.value_counts().sort_index().plot(kind = 'pie',  labels = labels, autopct = '%.2f')
 
 
 def histplot(column):
     sns.distplot(column.value_counts().sort_index())
+
+def barplot(x, y, title):
+    plt.figure(figsize = (12, 12))
+    sns.barplot(x = x, y = y)
+    plt.title(title)
+    plt.xticks(rotation = 75)
 
 
 def nan_columns_rates(data):
@@ -40,3 +47,8 @@ def visualize_feature_target(feature_column, target_column, values_meaning = Non
     plt.legend()
     plt.show()
 
+
+def corr_matrix(data):
+    plt.figure(figsize = (30,30))
+    sns.heatmap(data.corr(), annot = True)
+    return data.corr()
