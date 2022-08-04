@@ -11,6 +11,7 @@ def values_meaning(col_name):
         dd = {1:'Developer', 2:'Project manager', 3:'Company manager', 4:'Technical consultant', 6:'Technical manager', 7:'Planning coordinator', 8:'System administrator'}
     if col_name == 'Customer organization type':
         dd = {1:'University department', 2:'Department in a Private company', 3:'Bank', 4:'Federal Ministry', 5:'Department in a federal ministry', 6:'Factory', 7:'Hospital department', 8:'TV Channel', 9:'Non-profit organization', 10:'Private company', 11:'Hospital', 12:'Public company', 13:'In-house development', 14:'Federal directorates', 15:'Private school', 16:'Department in a bank'}
+    
     if col_name == 'Size of organization':
         dd = {1:'1-5', 2:'6-10', 3:'11-20', 4:'21-30', 5:'31-40', 6:'41-50', 7:'51-100', 8:'101-150', 9:'151-200', 10:'201-250', 11:'251-300', 12:'301-350', 13:'351-400', 14:'401-450', 15:'451-500', 16:'>500'}
     if col_name == 'Size of IT department':
@@ -44,7 +45,7 @@ def values_meaning(col_name):
     if col_name in ['Modifications during requirements collection', 'Modifications during analysis', 'Modifications during design', 'Modifications during programming', 'Modifications during testing', 'Modifications during deployment']:
         dd = {0:'No changes', 1:'Minor', 2:'Partial', 3:'Major'}
     if col_name == 'User computer experience':
-        dd = {1:'Previous computer system exists in the customer organization (i.e., users have experience dealing with computers)', 2:'Familiar with the basics', 3:'No computer experience'}
+        dd = {1:'Previous computer system exists in the customer organization', 2:'Familiar with the basics', 3:'No computer experience'}
     if col_name in ['Manual system experience', 'User cooperation in requirement solicitation', 'Users desire for change/project adaption', 'User not afraid of the impact of product', 'Cohesion between developers and users']:
         dd = {1:'Very strong', 2:'Strong', 3:'Normal', 4:'Weak', 5:'Very weak'}
     
@@ -66,7 +67,7 @@ def values_meaning(col_name):
     if col_name == 'Programming language used':
         dd = {1:'PHP', 2:'Android', 3:'ASP.net', 4:'C#', 5:'Java, Android', 6:'Java', 7:'Oracle Developer', 8:'Visual Basic 6', 9:'Python/Java', 10:'Python', 11:'Visual Basic .Net', 12:'C++', 13:'Python/HTML/PHP', 16:'Visual Basic/C#', 17:'PHP/Oracle', 18:'Javascript/PHP', 19:'ASP.NET/Javascript/C#', 23:'CH', 24:'Java, C#, PHP', 25:'Java/Android/C#'}
     if col_name == 'DBMS used':
-        dd = {1:'MySQL', 2:'Oracle', 3:'Microsoft SQL Server', 4:'PostgreSQL'}
+        dd = {1:'MySQL', 2:'Oracle', 3:'Microsoft SQL Server', 5:'PostgreSQL'}
     if col_name == 'Methodology':
         dd = {1:'Waterfall', 2:'Agile', 3:'Hybrid methodologies', 4:'No methodology', 6:'Prototyping', 7:'Other'}
     if col_name == 'Level of technical instability (Main)':
@@ -74,8 +75,8 @@ def values_meaning(col_name):
     if col_name == 'Level of outsourcing': 
         dd = {1:'Outsourcing to an entity with better experience and capabilities than the development team', 2:'Outsourcing to an entity with the same experience and capabilities as the development team', 3:'No outsourcing'}
     if col_name == 'Outsourcing impact': 
-        dd = {1: 'Schedule underrun', 2:'No effect', 3:'Schedule overrun'}
-    if col_name == 'Degree of software reuse ':
+        dd = {1: 'Schedule underrun', 2:'No effect', 3:'Schedule overrun', 5:'No answer'}
+    if col_name == 'Degree of software reuse':
         dd = {1:'Reuse/purchase a complete software system', 2:'Reuse/purchase modules from previous software system', 3:'Reuse the design of a previous software system', 4:'Reuse the technical specifications from previous software system', 5:'No reuse'}
     if col_name == 'Use of standards': 
         dd = {1: 'Use of standards for all the software development lifecycle', 2: 'Use of standards for specific phases in software development lifecycle', 3: 'Not using any standards'}
@@ -98,19 +99,22 @@ def values_meaning(col_name):
         dd = {1:'User dis-satisfaction and inconvenience', 2:'Minor monetary loss, can be mitigated', 3:'Medium monetary loss, can be mitigated', 4:'Major monetary loss', 5:'Life threatening'}
     if col_name == 'Specified H/W':
         dd = {1:'Not required', 2:'Required specialized H/W that was available on time and we have prior experience with the H/W', 3:'Required specialized H/W that was available on time but we do not have prior experience with the H/W', 4:'Required specialized H/W that was not available on time'}
+     
     return dd
 
 
 
 def categorical_cols_names():
-    names = ['Organization type', 'Role in organization', 'Size of organization', 'Size of organization', 'Customer organization type', 'Size of IT department', 'Application domain', 'Development type',
-    'Government policy impact', 'Developer hiring policy', 'Organization management structure clarity', 'Developer training', 'Fixed minimum working hours', 'Time sheet recording', 'Team work commitment', 'Top management opinion of previous system','Direct automation of the manual system', 'Transfer of key user', 'DBMS expert availability', 'Open source software', 'Risk plan', 'Risk management tool usage', 'Reengineering', 'Consequence for lack of work', 'Absence policy implementation',
-    'User manual clarity', 'Developer hiring policy', 'Manual system experience', 'User cooperation in requirement solicitation', 'Users desire for change/project adaption', 'User not afraid of the impact of product', 'Cohesion between developers and users',
+    names = ['Organization type', 'Role in organization', 'Size of organization', 'Customer organization type',  'Application domain', 'Development type', 'Size of IT department',
+    'Government policy impact', 'Organization size', 'Developer hiring policy', 'Organization management structure clarity', 'Developer training', 'Fixed minimum working hours', 'Time sheet recording', 'Team work commitment', 'Top management opinion of previous system','Direct automation of the manual system', 'Transfer of key user', 'DBMS expert availability', 'Open source software', 'Risk plan', 'Risk management tool usage', 'Reengineering', 'Consequence for lack of work', 'Absence policy implementation',
+    'User manual clarity', 'Manual system experience', 'User cooperation in requirement solicitation', 'Users desire for change/project adaption', 'User not afraid of the impact of product', 'Cohesion between developers and users',
     'Project manager experience', 'Consultant availability', 'Software tool experience', 'Programmers experience in programming language', 'Team selection', 'Income satisfaction',
-    'Schedule quality', 'Programming language used', 'DBMS used', 'Methodology', 'Level of outsourcing', 'Outsourcing impact', 'Degree of software reuse ', 'Use of standards', 
+    'Schedule quality', 'Programming language used', 'DBMS used', 'Methodology', 'Level of outsourcing', 'Outsourcing impact', 'Degree of software reuse', 'Use of standards', 
     'Requirement accuracy level', 'Technical documentation', 'Comments within the code', 'User manual', 'Required reusability', 'Product complexity', 'Reliability requirements', 'Specified H/W']
     names.sort()
     return names
+
+
 #Defining a dictionary for each category and its columns
 def categories(category):
     categories = {
@@ -124,7 +128,7 @@ def categories(category):
                            ],
     'Environment':         ['Contract maturity', 'Government policy impact', 'Economic instability impact',
                             'Organization management structure clarity', 'Developer hiring policy',
-                            'Developer incentives policy ', 'Developer training',
+                            'Developer incentives policy', 'Developer training',
                             'Development team management'
                            ],
     'Users':               ['Top management support',
@@ -132,16 +136,16 @@ def categories(category):
                             'User resistance', 'User computer experience', 'Users stability',
                             'Requirment stability', 'Requirements flexibility'
                            ],
-    'Developers':          ['Project manager experience', 'Consultant availability', 'DBMS  expert availability', 'Precedentedness',
-                            'Software tool experience', 'Programmers experience in programming language', 'Programmers capability ', 'Analysts capability ', 
-                            'Team selection', 'Team size', 'Dedicated team members', 'Daily working hours', 'Team contracts', 'Team continuity ', 
+    'Developers':          ['Project manager experience', 'Consultant availability', 'DBMS expert availability', 'Precedentedness',
+                            'Software tool experience', 'Programmers experience in programming language', 'Programmers capability ', 'Analysts capability', 
+                            'Team selection', 'Team size', 'Dedicated team members', 'Daily working hours', 'Team contracts', 'Team continuity', 
                             'Team cohesion', 'Income satisfaction'
                            ],
-    'Project':             ['Schedule quality', 'Development environment adequacy', 'Tool availability ', 'Methodology',
-                            'Multiple programing languages ', 'Programming language used',
+    'Project':             ['Schedule quality', 'Development environment adequacy', 'Tool availability', 'Methodology',
+                            'Multiple programing languages', 'Programming language used',
                             'DBMS used', 'Technical stability', 'Open source software',
                             'Level of outsourcing', 'Outsourcing impact',
-                            'Degree of software reuse ', 'Degree of risk management',
+                            'Degree of software reuse', 'Degree of risk management',
                             'Use of standards', 'Degree of standards usage',
                             'Process reengineering'
                            ], 
@@ -154,3 +158,8 @@ def categories(category):
     }
     
     return categories[category]
+
+def ordinal_categories():
+    return ['Size of organization', 'Size of IT department', 'Government policy impact', 'User manual', 'Users stability',
+            'Programmers experience in programming language', 'Software tool experience', 'Income satisfaction', 'Product complexity',
+            'Reliability requirements']

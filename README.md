@@ -1,0 +1,2 @@
+## The missing values are represented by a '?'
+## For values that depend on the answers of conditional questions: if the condition is not met the value is encoded a “N/A” and is not considered a missing value.
