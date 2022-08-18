@@ -37,13 +37,13 @@ class GeneticAlgorithm:
   def plot_generations_scores(self):
     scores = self.get_scores()
     mean_score = self.get_mean_scores()
-    plt.figure(figsize = (15, 10))
+    fig = plt.figure(figsize = (15, 10))
     plt.plot(scores, c = 'seagreen', label = 'Max score per generation')
-    plt.plot(mean_score, c = 'k', label = 'Mean score per generation')
     plt.xlabel('Generation')
     plt.ylabel('5K FOLD cv score')
     plt.legend()
     plt.show()
+    return fig
 
   "------------------------------------------------------------------------------------------------------"
 
@@ -104,7 +104,7 @@ class GeneticAlgorithm:
 
       # To store the evolution of the score
       self.scores.append(self.fitness_function(population[0])) 
-      self.mean_score.append(self.mean_score_population(population))
+
 
     population = self.sort_population(population)
     return population

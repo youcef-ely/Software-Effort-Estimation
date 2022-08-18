@@ -2,9 +2,10 @@ import random
 import matplotlib.pyplot as plt 
 from neural_network import NeuralNetwork 
 import time
+import metrics
 class GeneticAlgorithm:
         
-  def __init__(self, parameters_ranges: dict, X_train, y_train, size_of_population: int, fitness_limit, time_limit, probability: float = 0.1, mutation_number: int = 1):
+  def __init__(self, parameters_ranges: dict, X_train, y_train, size_of_population: int, fitness_limit, time_limit, probability: float = 0.1, mutation_number: int = 1, metrics = metrics):
     self.parameters_ranges = parameters_ranges
     self.X_train = X_train
     self.y_train = y_train
@@ -15,7 +16,7 @@ class GeneticAlgorithm:
     self.scores = []
     self.best_indiv_per_gen = []
     self.time_limit = time_limit
-
+    self.metrics = metrics
   "----------------------------------------------------------    Utils     ------------------------------------------------"
   def get_scores(self):
     return self.scores
@@ -50,9 +51,8 @@ class GeneticAlgorithm:
     return [self.generate_chromosome() for i in range(self.size_of_population)]
   
   def fitness_function(self, chromosome): 
-    model = NeuralNetwork(chromosome, self.X_train, self.y_train, 1000)
-    model.fit()
-    return model.history.history['val_r_square'][-1]
+    model = NeuralNetwork(chromosome, self.X_train, self.y_train, 3000)
+    return model.cv_scores(self.metrics)['r2'].mean()
 
   def selection_pair(self, population):
     return self.sort_population(population)[0: 2]

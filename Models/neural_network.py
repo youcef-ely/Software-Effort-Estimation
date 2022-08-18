@@ -13,7 +13,7 @@ import os
 
 class NeuralNetwork:
 
-  def __init__(self, parameters: dict, X_train, y_train, epochs = 500, seed = 10):
+  def __init__(self, parameters: dict, X_train, y_train, metrics, epochs = 500, seed = 10):
     self.parameters = parameters
     self.X_train = X_train
     self.y_train = y_train
@@ -23,17 +23,15 @@ class NeuralNetwork:
     self.history = None
     self.model = None
     self.seed = seed
+    self.metrics = metrics
 
  
 
   def create_network(self): 
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape = self.X_train.shape[1])) 
-    if self.parameters['num_layers'] != 0:
-      for _ in range(self.parameters['num_layers']):
-        model.add(tf.keras.layers.Dense(self.parameters['num_units'], activation = self.parameters['activation'], 
-        kernel_regularizer = tf.keras.regularizers.l1(self.parameters['l1'])))
-        model.add(tf.keras.layers.Dropout(self.parameters['Dropout']))
+    model.add(tf.keras.layers.Dropout(self.parameters['Dropout']))
+        
     model.add(tf.keras.layers.Dense(1, activation  = 'linear'))
 
     model.compile(loss = tf.keras.losses.MeanAbsoluteError(),
@@ -42,7 +40,7 @@ class NeuralNetwork:
     return model
 
 
-  def cv_scores(self, metrics):
+  def cv_scores(self):
     kfold = KFold(n_splits = 5, shuffle = True, random_state = 37)
     mae_, mmre_, r2_, pred_ = [], [], [], []
     for train, test in kfold.split(self.X_train, self.y_train_sc):
@@ -54,10 +52,10 @@ class NeuralNetwork:
       # evaluate the model
       predictions = model.predict(self.X_train.values[test], verbose=0)
       predictions = self.y_scaler.inverse_transform(predictions)
-      mae_.append(metrics.mean_absolute_error(self.y_train.values[test], predictions))
-      mmre_.append(metrics.mean_magnitude_of_relative_error(self.y_train.values[test], predictions))
-      r2_.append(metrics.r2_score(self.y_train.values[test], predictions))
-      pred_.append(metrics.pred(self.y_train.values[test], predictions.reshape((predictions.shape[0], ))))
+      mae_.append(self.metrics.mean_absolute_error(self.y_train.values[test], predictions))
+      mmre_.append(self.metrics.mean_magnitude_of_relative_error(self.y_train.values[test], predictions))
+      r2_.append(self.metrics.r2_score(self.y_train.values[test], predictions))
+      pred_.append(self.metrics.pred(self.y_train.values[test], predictions.reshape((predictions.shape[0], ))))
     return dict(mae = np.array(mae_), mmre = np.array(mmre_), r2 = np.array(r2_), pred = np.array(pred_)) 
 
   def fit(self):
